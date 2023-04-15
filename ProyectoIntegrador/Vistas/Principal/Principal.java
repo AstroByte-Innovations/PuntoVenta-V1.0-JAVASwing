@@ -11,6 +11,7 @@ public class Principal extends JFrame {
 
 	private JPanel contentPane;
 	private Nav navegacion;
+	private Agenda agenda;
 	public Principal() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -21,6 +22,9 @@ public class Principal extends JFrame {
 		this.navegacion = new Nav();
 		this.contentPane.setLayout(new BorderLayout());
 		this.contentPane.add(navegacion,BorderLayout.NORTH);
+		
+		this.agenda = new Agenda("Marcos");
+		this.contentPane.add(agenda,BorderLayout.WEST);
 		setContentPane(contentPane);
 	}
 
