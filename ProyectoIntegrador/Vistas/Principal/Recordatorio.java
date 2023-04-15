@@ -12,19 +12,22 @@ import javax.swing.BoxLayout;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
 
 public class Recordatorio extends JPanel {
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
+	//private static final long serialVersionUID = 1L;
 	private JLabel fecha;
 	private JLabel asunto;
 	private JLabel texto;
 	private JPanel encabezado;
+	
 	public Recordatorio(String Fecha, String Asunto, String Texto) {
 		this.setBounds(0, 0, 200, 100);
+		this.setBorder(new EmptyBorder(5,0,5,0));
 		setLayout(new BorderLayout(0, 0));
 		this.encabezado = new JPanel();
 		this.encabezado.setLayout(new BorderLayout());

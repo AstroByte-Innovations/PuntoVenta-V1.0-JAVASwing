@@ -8,8 +8,8 @@ import javax.swing.SwingConstants;
 
 public class Logo extends JPanel {
 
-	private JButton grid;
-	private JLabel logo;
+	public JButton grid;
+	public JButton logo;
 	
 	public Logo() {
 		this.setBounds(0, 0, 200, 50);
@@ -17,12 +17,12 @@ public class Logo extends JPanel {
 		ImageIcon imagenCuadricula = new ImageIcon("src/Assets/img/menu.png");
 		this.grid.setIcon(imagenCuadricula);
 		
-		this.logo = new JLabel("Imagen");
+		this.logo = new JButton("Imagen");
 		logo.setHorizontalAlignment(SwingConstants.CENTER);
 		ImageIcon icon = new ImageIcon("src/Assets/img/imagen.png");
 		this.logo.setIcon(icon);
 		
-		this.add(grid);
+		//this.add(grid);
 		this.add(logo);
 	}
 

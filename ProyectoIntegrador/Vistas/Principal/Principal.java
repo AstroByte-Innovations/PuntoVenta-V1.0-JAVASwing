@@ -9,13 +9,15 @@ import javax.swing.border.EmptyBorder;
 
 public class Principal extends JFrame {
 
-	private JPanel contentPane;
-	private Nav navegacion;
-	private Agenda agenda;
+	public JPanel contentPane;
+	public Nav navegacion;
+	public Centro centro;
+	
 	public Principal() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		setBounds(100, 100, 450, 300);
+		this.centro = new Centro();
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		
@@ -23,8 +25,7 @@ public class Principal extends JFrame {
 		this.contentPane.setLayout(new BorderLayout());
 		this.contentPane.add(navegacion,BorderLayout.NORTH);
 		
-		this.agenda = new Agenda("Marcos");
-		this.contentPane.add(agenda,BorderLayout.WEST);
+		this.contentPane.add(centro,BorderLayout.CENTER);
 		setContentPane(contentPane);
 	}
 

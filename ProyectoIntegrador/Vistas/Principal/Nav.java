@@ -15,9 +15,10 @@ import java.awt.FlowLayout;
 import javax.swing.SwingConstants;
 
 public class Nav extends JPanel {
-	private Logo logo;
-	private JMenuBar navegacion;
-	private Usuario usuario;
+	public Logo logo;
+	public JMenuBar navegacion;
+	public JMenu Producto,Producto2,Producto3,Producto4,Producto5,Producto6,Producto7;
+	public Usuario usuario;
 	
 	public Nav() {
 		this.setLayout(new BorderLayout());
