@@ -1,4 +1,4 @@
-package Principal;
+package General;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -22,7 +22,7 @@ public class Logo extends JPanel {
 		ImageIcon icon = new ImageIcon("src/Assets/img/imagen.png");
 		this.logo.setIcon(icon);
 		
-		//this.add(grid);
+		this.add(grid);
 		this.add(logo);
 	}
 

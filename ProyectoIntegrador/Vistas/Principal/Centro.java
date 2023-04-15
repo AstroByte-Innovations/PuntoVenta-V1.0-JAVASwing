@@ -9,9 +9,9 @@ public class Centro extends JPanel {
 	private Agenda agenda;
 	public Opciones opciones;
 	
-	public Centro() {
+	public Centro(String user) {
 		this.setLayout(new BorderLayout());
-		this.agenda = new Agenda("Marcos");
+		this.agenda = new Agenda(user);
 		this.add(agenda,BorderLayout.WEST);
 		
 		this.opciones = new Opciones();

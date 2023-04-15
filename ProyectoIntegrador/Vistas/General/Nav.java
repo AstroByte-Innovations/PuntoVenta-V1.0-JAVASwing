@@ -1,4 +1,4 @@
-package Principal;
+package General;
 
 import java.awt.Image;
 
@@ -14,10 +14,11 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import javax.swing.SwingConstants;
 
+import Principal.Usuario;
+
 public class Nav extends JPanel {
 	public Logo logo;
 	public JMenuBar navegacion;
-	public JMenu Producto,Producto2,Producto3,Producto4,Producto5,Producto6,Producto7;
 	public Usuario usuario;
 	
 	public Nav() {

@@ -7,6 +7,8 @@ import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
+import PuntoDeVenta.PuntoDeVenta;
+
 public class CPrincipal implements ActionListener{
 
 	private Principal principal;
@@ -17,14 +19,18 @@ public class CPrincipal implements ActionListener{
 		this.principal.setVisible(true);
 		
 		this.principal.navegacion.logo.grid.addActionListener(this);
-		this.principal.centro.opciones.opciones[0].addActionListener(this);
+		this.principal.centro.opciones.opciones[1].addActionListener(this);
 		//this.principal.centro.
 	}
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-
+		if(e.getSource() == this.principal.centro.opciones.opciones[1]) {
+			PuntoDeVenta venta = new PuntoDeVenta();
+			venta.setVisible(true);
+			this.principal.dispose();
+		}
 	}
 
 }
