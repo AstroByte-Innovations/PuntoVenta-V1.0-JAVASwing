@@ -1,33 +1,34 @@
-package PuntoDeVenta;
+package Categorias;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import General.Nav;
-import Usuario.Cliente;
-import Usuario.Empleado;
 
-public class PuntoDeVenta extends JFrame {
+public class VCategorias extends JFrame {
 
 	private JPanel contentPane;
-
 	public Nav navegacion;
-	public PV centro;
-	
-	public PuntoDeVenta(String Num, Empleado empleado, Cliente cliente, String fecha, String root) {
+	public Categorias categorias;
+
+	public VCategorias() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		setBounds(100, 100, 900, 600);
 		
-		contentPane = new JPanel(new BorderLayout());
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		this.centro = new PV(Num, empleado, cliente, fecha, root);
 		this.navegacion = new Nav();
+		this.categorias = new Categorias();
+		
+		contentPane = new JPanel();
+		this.contentPane.setLayout(new BorderLayout());
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		
 		this.contentPane.add(navegacion,BorderLayout.NORTH);
-		this.contentPane.add(centro,BorderLayout.CENTER);
+		this.contentPane.add(categorias,BorderLayout.CENTER);
 		setContentPane(contentPane);
 	}
 

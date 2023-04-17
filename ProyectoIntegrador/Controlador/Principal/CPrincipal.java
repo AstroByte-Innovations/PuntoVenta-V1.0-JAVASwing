@@ -7,7 +7,8 @@ import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-import PuntoDeVenta.PuntoDeVenta;
+import PuntoDeVenta.CPuntoDeVenta;
+import Categorias.VCategorias;
 
 public class CPrincipal implements ActionListener{
 
@@ -20,6 +21,7 @@ public class CPrincipal implements ActionListener{
 		
 		this.principal.navegacion.logo.grid.addActionListener(this);
 		this.principal.centro.opciones.opciones[1].addActionListener(this);
+		this.principal.centro.opciones.opciones[7].addActionListener(this);
 		//this.principal.centro.
 	}
 	
@@ -27,8 +29,11 @@ public class CPrincipal implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		if(e.getSource() == this.principal.centro.opciones.opciones[1]) {
-			PuntoDeVenta venta = new PuntoDeVenta();
-			venta.setVisible(true);
+			CPuntoDeVenta puntoventa = new CPuntoDeVenta();
+			this.principal.dispose();
+		}else if(e.getSource() == this.principal.centro.opciones.opciones[7]) {
+			VCategorias categorias = new VCategorias();
+			categorias.setVisible(true);
 			this.principal.dispose();
 		}
 	}
