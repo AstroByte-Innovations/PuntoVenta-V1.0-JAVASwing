@@ -1,6 +1,8 @@
+import General.ConexionBD;
 import Principal.CPrincipal;
+import Productos.MProductos;
 
-public class Hola {
+public class PrincipalMain {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

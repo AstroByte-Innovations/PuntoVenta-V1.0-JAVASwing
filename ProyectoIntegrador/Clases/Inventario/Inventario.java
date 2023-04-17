@@ -1,13 +1,13 @@
 package Inventario;
-import Productos.Producto;
+import Productos.PProducto;
 
 public class Inventario {
-	private Producto Producto;
+	private PProducto Producto;
 	private Almacen Almacen;
 	private int Estado;
 	private double Cantidad;
 	
-	public Inventario(Productos.Producto producto, Almacen almacen, int estado, double cantidad) {
+	public Inventario(Productos.PProducto producto, Almacen almacen, int estado, double cantidad) {
 		super();
 		Producto = producto;
 		Almacen = almacen;
@@ -15,11 +15,11 @@ public class Inventario {
 		Cantidad = cantidad;
 	}
 
-	public Producto getProducto() {
+	public PProducto getProducto() {
 		return Producto;
 	}
 
-	public void setProducto(Producto producto) {
+	public void setProducto(PProducto producto) {
 		Producto = producto;
 	}
 

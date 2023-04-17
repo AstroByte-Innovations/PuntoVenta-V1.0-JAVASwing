@@ -9,6 +9,8 @@ import javax.swing.JOptionPane;
 
 import PuntoDeVenta.CPuntoDeVenta;
 import Categorias.VCategorias;
+import Producto.CProductos;
+import Productos.VProductos;
 
 public class CPrincipal implements ActionListener{
 
@@ -22,6 +24,7 @@ public class CPrincipal implements ActionListener{
 		this.principal.navegacion.logo.grid.addActionListener(this);
 		this.principal.centro.opciones.opciones[1].addActionListener(this);
 		this.principal.centro.opciones.opciones[7].addActionListener(this);
+		this.principal.centro.opciones.opciones[0].addActionListener(this);
 		//this.principal.centro.
 	}
 	
@@ -34,6 +37,9 @@ public class CPrincipal implements ActionListener{
 		}else if(e.getSource() == this.principal.centro.opciones.opciones[7]) {
 			VCategorias categorias = new VCategorias();
 			categorias.setVisible(true);
+			this.principal.dispose();
+		}else if(e.getSource() == this.principal.centro.opciones.opciones[0]) {
+			CProductos productos = new CProductos();
 			this.principal.dispose();
 		}
 	}

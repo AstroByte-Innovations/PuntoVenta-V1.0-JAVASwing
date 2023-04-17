@@ -8,7 +8,7 @@ public class CPuntoDeVenta implements ActionListener{
 	private PuntoDeVenta ventana;
 	
 	public CPuntoDeVenta() {
-		this.ventana = new PuntoDeVenta("000",null,null,"00/00/0000","src/Assets/img/imageop.png");
+		this.ventana = new PuntoDeVenta("000",null,null,"00/00/0000","src/Assets/img/imagenop.png");
 		this.ventana.setVisible(true);
 	}
 	

@@ -16,7 +16,7 @@ public class Producto {
 	private String Imagen;
 	
 	public Producto(String iD, String codigo, String nombre, double precio, double costo, int tipo,
-			Productos.Categoria categoria, Productos.SubCategoria subCategoria, Usuario.Proveedor proveedor, int estado,
+			Categoria categoria, SubCategoria subCategoria, Usuario.Proveedor proveedor, int estado,
 			String descripcion, String notas, String imagen) {
 		super();
 		ID = iD;
