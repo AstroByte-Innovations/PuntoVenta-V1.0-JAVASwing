@@ -40,7 +40,7 @@ public class MProductos {
 	               String descrip = resultSet.getString("Descripcion");
 	               String notas = resultSet.getString("Notas");
 	               String imagen = resultSet.getString("Imagen");
-	               System.out.println(id + " " + nombre);
+	               System.out.println(id + " " + nombre + " " + imagen);
 	               productos.add(new Producto(id, codigo, nombre, precio, costo, tipo, null, null, null, estado, descrip, notas, imagen));
 	           }
 	           return productos;

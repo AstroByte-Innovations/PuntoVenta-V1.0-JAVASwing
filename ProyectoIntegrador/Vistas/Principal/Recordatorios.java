@@ -33,7 +33,7 @@ public class Recordatorios extends JPanel {
 		recordatorios.setLayout(new BoxLayout(recordatorios, BoxLayout.Y_AXIS));
 		
 		for(int i = 0; i < 20; i++) {
-			this.recordatorios.add(new Recordatorio("12/12/2023","Prueba","Hola esto es una prieba"));
+			this.recordatorios.add(new Recordatorio("12/12/2023","Viene el proveedor","Hola soy un recordatorio"));
 		}
 		this.scroll.setViewportView(recordatorios);
 		this.add(scroll,BorderLayout.CENTER);

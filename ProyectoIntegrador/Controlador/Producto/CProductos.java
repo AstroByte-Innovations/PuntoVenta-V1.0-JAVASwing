@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
+import Principal.CPrincipal;
 import Productos.MProductos;
 import Productos.PProducto;
 import Productos.Producto;
@@ -21,6 +21,8 @@ public class CProductos implements ActionListener{
 		this.productos = new VProductos();
 		this.productos.setVisible(true);
 		
+		this.productos.productos.btnSalida.addActionListener(this);
+		this.productos.navegacion.logo.grid.addActionListener(this);
 		
 		ArrayList<Producto> productos = new ArrayList<Producto>();
 		productos = MProductos.CargarProductos();
@@ -32,7 +34,10 @@ public class CProductos implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		
+		if(e.getSource() == this.productos.productos.btnSalida || e.getSource() == this.productos.navegacion.logo.grid) {
+			CPrincipal principal = new CPrincipal();
+			this.productos.dispose();
+		}
 	}
 
 }

@@ -2,6 +2,8 @@ package Principal;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
+
 import java.awt.Font;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
@@ -16,13 +18,9 @@ import javax.swing.border.EmptyBorder;
 
 public class Recordatorio extends JPanel {
 
-	/**
-	 * 
-	 */
-	//private static final long serialVersionUID = 1L;
 	private JLabel fecha;
 	private JLabel asunto;
-	private JLabel texto;
+	private JTextArea texto;
 	private JPanel encabezado;
 	
 	public Recordatorio(String Fecha, String Asunto, String Texto) {
@@ -42,8 +40,9 @@ public class Recordatorio extends JPanel {
 		this.encabezado.add(this.asunto,BorderLayout.CENTER);
 		
 		this.add(encabezado,BorderLayout.NORTH);
-		this.texto = new JLabel(Texto);
-		texto.setVerticalAlignment(SwingConstants.TOP);
+		this.texto = new JTextArea(Texto);
+		texto.setEnabled(false);
+		texto.setAlignmentY(TOP_ALIGNMENT);
 		texto.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		this.add(this.texto,BorderLayout.CENTER);
 	}

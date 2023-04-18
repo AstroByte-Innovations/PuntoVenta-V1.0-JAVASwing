@@ -17,7 +17,7 @@ public class ConexionBD {
 	public void Conexion() {
         String server = "puntodeventamarcosfalcon.database.windows.net";
         String database = "PuntoDeVenta";
-        this.url = "jdbc:sqlserver://" + server + ":1433;database=" + database + ";encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;";
+        this.url = "jdbc:sqlserver://" + server + ":1433;database=" + database + ";encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=15;";
         this.user = "MarcosFalcon";
         this.password = "PAMarcos@092";
     }

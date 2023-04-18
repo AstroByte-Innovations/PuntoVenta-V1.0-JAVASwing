@@ -7,8 +7,10 @@ import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.GridBagLayout;
+import java.awt.Image;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
+import java.io.File;
 import java.awt.Color;
 import java.awt.Font;
 
@@ -20,7 +22,10 @@ public class PProducto extends JPanel {
 		String root = "src/Assets/img/imagenop.png", codigo = "0000000", nombre = "UNKNOW";
 		double precio = 0.00;
 		if(producto != null) {
-			//root = "src/Assets/imgProductos/" + producto.getImagen();
+			File imagen = new File("src/Assets/imgProductos/" + producto.getImagen());
+			if(imagen.exists()){
+				root = "src/Assets/imgProductos/" + producto.getImagen();
+			}
 			codigo = producto.getCodigo();
 			nombre = producto.getNombre();
 			precio = producto.getPrecio();
@@ -37,7 +42,10 @@ public class PProducto extends JPanel {
 		setLayout(gridBagLayout);
 		
 		JLabel imagen = new JLabel("");
-		imagen.setIcon(new ImageIcon(root));
+		ImageIcon image = new ImageIcon(root);
+		Image image2 = image.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
+		
+		imagen.setIcon(new ImageIcon(image2));
 		GridBagConstraints gbc_imagen = new GridBagConstraints();
 		gbc_imagen.insets = new Insets(0, 0, 5, 0);
 		gbc_imagen.gridx = 0;
