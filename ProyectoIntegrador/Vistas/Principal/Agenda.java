@@ -2,6 +2,7 @@ package Principal;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -21,6 +22,7 @@ public class Agenda extends JPanel {
 	public Agenda(String user) {
 		this.setLayout(new BorderLayout());
 		this.setBounds(0, 0, 200, 900);
+		this.setMaximumSize(new Dimension(200,900));
 		this.setBorder(new LineBorder(new Color(0,0,0)));
 		
 		

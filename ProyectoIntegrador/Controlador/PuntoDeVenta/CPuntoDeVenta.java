@@ -14,12 +14,15 @@ public class CPuntoDeVenta implements ActionListener{
 		this.ventana.setVisible(true);
 		this.ventana.centro.btnCancelar.addActionListener(this);
 		this.ventana.navegacion.logo.grid.addActionListener(this);
+		this.ventana.navegacion.SMsalida.addActionListener(this);
 	}
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		if(e.getSource() == this.ventana.centro.btnCancelar || e.getSource() == this.ventana.navegacion.logo.grid) {
+		if(e.getSource() == this.ventana.navegacion.SMsalida) {
+			this.ventana.dispose();
+		}else if(e.getSource() == this.ventana.centro.btnCancelar || e.getSource() == this.ventana.navegacion.logo.grid) {
 			CPrincipal principal = new CPrincipal();
 			this.ventana.dispose();
 		}

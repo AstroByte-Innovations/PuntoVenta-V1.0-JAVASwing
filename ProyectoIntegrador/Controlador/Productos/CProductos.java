@@ -1,4 +1,4 @@
-package Producto;
+package Productos;
 
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
@@ -23,7 +23,7 @@ public class CProductos implements ActionListener{
 		
 		this.productos.productos.btnSalida.addActionListener(this);
 		this.productos.navegacion.logo.grid.addActionListener(this);
-		
+		this.productos.navegacion.SMsalida.addActionListener(this);
 		ArrayList<Producto> productos = new ArrayList<Producto>();
 		productos = MProductos.CargarProductos();
 		for(Producto e: productos) {
@@ -34,7 +34,9 @@ public class CProductos implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		if(e.getSource() == this.productos.productos.btnSalida || e.getSource() == this.productos.navegacion.logo.grid) {
+		if(e.getSource() == this.productos.navegacion.SMsalida) {
+			this.productos.dispose();
+		}else if(e.getSource() == this.productos.productos.btnSalida || e.getSource() == this.productos.navegacion.logo.grid) {
 			CPrincipal principal = new CPrincipal();
 			this.productos.dispose();
 		}

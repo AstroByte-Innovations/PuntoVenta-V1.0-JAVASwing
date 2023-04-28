@@ -9,8 +9,9 @@ import javax.swing.JOptionPane;
 
 import PuntoDeVenta.CPuntoDeVenta;
 import Categorias.VCategorias;
-import Producto.CProductos;
+import Productos.CProductos;
 import Productos.VProductos;
+import Inventario.CInventario;
 
 public class CPrincipal implements ActionListener{
 
@@ -25,16 +26,23 @@ public class CPrincipal implements ActionListener{
 		this.principal.centro.opciones.opciones[1].addActionListener(this);
 		this.principal.centro.opciones.opciones[7].addActionListener(this);
 		this.principal.centro.opciones.opciones[0].addActionListener(this);
+		this.principal.centro.opciones.opciones[2].addActionListener(this);
+		this.principal.navegacion.SMsalida.addActionListener(this);
 		//this.principal.centro.
 	}
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		if(e.getSource() == this.principal.centro.opciones.opciones[1]) {
+		if(e.getSource() == this.principal.navegacion.SMsalida) {
+			this.principal.dispose();
+		}else if(e.getSource() == this.principal.centro.opciones.opciones[1]) {
 			CPuntoDeVenta puntoventa = new CPuntoDeVenta();
 			this.principal.dispose();
-		}else if(e.getSource() == this.principal.centro.opciones.opciones[7]) {
+		}else if(e.getSource() == this.principal.centro.opciones.opciones[2]){
+			CInventario inventario = new CInventario();
+			this.principal.dispose();
+		} if(e.getSource() == this.principal.centro.opciones.opciones[7]) {
 			VCategorias categorias = new VCategorias();
 			categorias.setVisible(true);
 			this.principal.dispose();

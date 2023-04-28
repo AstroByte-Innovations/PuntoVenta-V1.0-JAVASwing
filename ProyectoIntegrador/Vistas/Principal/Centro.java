@@ -15,7 +15,7 @@ public class Centro extends JPanel {
 		this.add(agenda,BorderLayout.WEST);
 		
 		this.opciones = new Opciones();
-		this.add(opciones,BorderLayout.CENTER);
+		//this.add(opciones,BorderLayout.CENTER);
 	}
 
 }

@@ -14,6 +14,7 @@ public class MProductos {
 	static public ArrayList CargarProductos() {
 		ArrayList<Producto> productos = new ArrayList<Producto>();
 			ConexionBD conexion = new ConexionBD();
+			System.out.println("User" + conexion.user + " Password" + conexion.password);
 	       Connection connection = null;
 	       Statement statement = null;
 	       ResultSet resultSet = null;
@@ -22,7 +23,7 @@ public class MProductos {
 			connection = DriverManager.getConnection(conexion.url, conexion.user, conexion.password);
 			// Crear la declaración y realizar la consulta
 	           statement = connection.createStatement();
-	           String query = "SELECT * FROM [dbo].[Producto]";
+	           String query = "SELECT * FROM [dbo].[Producto];";
 	           resultSet = statement.executeQuery(query);
 
 	           // Procesar los resultados
