@@ -1,9 +1,12 @@
 package Productos;
 
 import javax.swing.JPanel;
+import javax.swing.JScrollBar;
+
 import java.awt.GridBagLayout;
 import javax.swing.JLabel;
 import java.awt.GridBagConstraints;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Insets;
 import javax.swing.JTextField;
@@ -27,7 +30,8 @@ public class Productos extends JPanel {
 	 * Create the panel.
 	 */
 	public Productos() {
-		this.setBounds(0, 0, 1000, 750);
+		//this.setBounds(0, 0, 1000, 750);
+		this.setPreferredSize(new Dimension(1000,750));
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]{0, 0, 100, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0};
 		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0};
@@ -140,19 +144,22 @@ public class Productos extends JPanel {
 		add(Mostrar, gbc_Mostrar);
 		Mostrar.setColumns(10);
 		
-		Productos = new JPanel();
-		Productos.setLayout(new GridLayout(0, 3, 10, 10));
 		
 		scrollPane = new JScrollPane();
-		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		//scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		GridBagConstraints gbc_scrollPane = new GridBagConstraints();
 		gbc_scrollPane.gridwidth = 11;
 		gbc_scrollPane.insets = new Insets(0, 0, 5, 5);
 		gbc_scrollPane.fill = GridBagConstraints.BOTH;
 		gbc_scrollPane.gridx = 1;
 		gbc_scrollPane.gridy = 5;
-		scrollPane.setViewportView(Productos);
+		
+		Productos = new JPanel();
+		Productos.setLayout(new GridLayout(0, 5, 10, 10));
+		
+		this.scrollPane.setViewportView(Productos);
 		add(scrollPane, gbc_scrollPane);
+		
 		
 		btnSalida = new JButton("Salida");
 		btnSalida.setFont(new Font("Tahoma", Font.PLAIN, 16));

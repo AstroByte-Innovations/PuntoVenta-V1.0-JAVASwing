@@ -6,7 +6,7 @@ import javax.swing.JPanel;
 
 public class Centro extends JPanel {
 
-	private Agenda agenda;
+	public Agenda agenda;
 	public Opciones opciones;
 	
 	public Centro(String user) {
@@ -15,7 +15,7 @@ public class Centro extends JPanel {
 		this.add(agenda,BorderLayout.WEST);
 		
 		this.opciones = new Opciones();
-		//this.add(opciones,BorderLayout.CENTER);
+		this.add(opciones,BorderLayout.CENTER);
 	}
 
 }

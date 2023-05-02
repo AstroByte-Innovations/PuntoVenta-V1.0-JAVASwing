@@ -17,7 +17,7 @@ public class Recordatorios extends JPanel {
 
 	private JLabel titulo = new JLabel("Recordatorios");
 	private JScrollPane scroll;
-	private JPanel recordatorios;
+	public JPanel recordatorios;
 	
 	public Recordatorios() {
 		this.setBounds(0, 0, 200, 400);
@@ -34,6 +34,8 @@ public class Recordatorios extends JPanel {
 		for(int i = 0; i < 20; i++) {
 			this.recordatorios.add(new Recordatorio("12/12/2023","Viene el proveedor","Hola soy un recordatorio\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent suscipit iaculis placerat. Pellentesque auctor erat mi, ac tincidunt nulla imperdiet vitae. Donec odio est, egestas ut malesuada eu, maximus nec dolor. Aliquam varius arcu non porta dignissim. Nulla dignissim rhoncus nunc, eu venenatis dolor malesuada vel. Morbi iaculis tincidunt aliquam. Suspendisse porttitor lectus vel consequat tempor. Integer ac elit quis justo dignissim pretium. Proin a mollis enim, vel interdum diam. Proin sed sem sit amet urna egestas fermentum eget vitae magna. Fusce non nisi at leo malesuada dapibus nec in ipsum. Phasellus lacus turpis, efficitur id posuere non, aliquam eu dolor."));
 		}
+		
+
 		this.scroll.setViewportView(recordatorios);
 		this.add(scroll,BorderLayout.CENTER);
 		

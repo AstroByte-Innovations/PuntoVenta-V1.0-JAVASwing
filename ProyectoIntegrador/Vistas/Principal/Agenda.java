@@ -18,7 +18,7 @@ public class Agenda extends JPanel {
 	private JLabel Lbienvenida = new JLabel("BIENVENIDO DE VUELTA:");
 	private JLabel Usuario;
 	
-	private Recordatorios recordatorios;
+	public Recordatorios recordatorios;
 	public Agenda(String user) {
 		this.setLayout(new BorderLayout());
 		this.setBounds(0, 0, 200, 900);
