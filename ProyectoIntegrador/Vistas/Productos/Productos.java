@@ -23,9 +23,12 @@ public class Productos extends JPanel {
 	public JButton btnSalida;
 	public JButton btnBuscar;
 	public JPanel Productos;
-	public JComboBox SubCategorias;
-	public JComboBox Categorias;
+	public JComboBox<SubCategoria> SubCategorias;
+	public JComboBox<Categoria> Categorias;
 	public JScrollPane scrollPane;
+	private JPanel panel;
+	public JButton btnAtras;
+	public JButton btnSiguiente;
 	/**
 	 * Create the panel.
 	 */
@@ -143,6 +146,20 @@ public class Productos extends JPanel {
 		gbc_Mostrar.gridy = 3;
 		add(Mostrar, gbc_Mostrar);
 		Mostrar.setColumns(10);
+		
+		panel = new JPanel();
+		GridBagConstraints gbc_panel = new GridBagConstraints();
+		gbc_panel.insets = new Insets(0, 0, 5, 5);
+		gbc_panel.fill = GridBagConstraints.BOTH;
+		gbc_panel.gridx = 10;
+		gbc_panel.gridy = 4;
+		add(panel, gbc_panel);
+		
+		btnAtras = new JButton("<");
+		panel.add(btnAtras);
+		
+		btnSiguiente = new JButton(">");
+		panel.add(btnSiguiente);
 		
 		
 		scrollPane = new JScrollPane();

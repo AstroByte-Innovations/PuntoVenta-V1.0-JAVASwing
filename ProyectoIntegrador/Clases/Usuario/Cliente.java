@@ -10,7 +10,7 @@ public class Cliente {
 	private String RFC;
 	private Direccion Direccion;
 	public Cliente(String iD, String nombres, String apellidos, String correo, String telefono, String rFC,
-			Usuario.Direccion direccion) {
+			Direccion direccion) {
 		super();
 		ID = iD;
 		Nombres = nombres;

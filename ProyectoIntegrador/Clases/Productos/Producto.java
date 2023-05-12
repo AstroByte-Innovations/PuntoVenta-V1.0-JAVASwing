@@ -133,6 +133,14 @@ public class Producto {
 	public String getID() {
 		return ID;
 	}
+
+	@Override
+	public String toString() {
+		return "Producto [ID=" + ID + ", Codigo=" + Codigo + ", Nombre=" + Nombre + ", Precio=" + Precio + ", Costo="
+				+ Costo + ", Tipo=" + Tipo + ", Categoria=" + Categoria + ", SubCategoria=" + SubCategoria
+				+ ", Proveedor=" + Proveedor + ", Estado=" + Estado + ", Descripcion=" + Descripcion + ", Notas="
+				+ Notas + ", Imagen=" + Imagen + "]";
+	}
 	
 	
 	

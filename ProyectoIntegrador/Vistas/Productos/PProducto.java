@@ -18,6 +18,8 @@ import java.awt.Font;
 import javax.swing.border.EmptyBorder;
 import javax.swing.DropMode;
 import javax.swing.JScrollPane;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class PProducto extends JPanel {
 
@@ -101,6 +103,11 @@ public class PProducto extends JPanel {
 		add(Precio, gbc_Precio);
 		
 		btnVer = new JButton(new ImageIcon("src/Assets/img/eye.png"));
+		btnVer.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CVerProducto produc = new CVerProducto(producto);
+			}
+		});
 		GridBagConstraints gbc_btnVer = new GridBagConstraints();
 		gbc_btnVer.insets = new Insets(5, 10, 5, 10);
 		gbc_btnVer.gridx = 0;

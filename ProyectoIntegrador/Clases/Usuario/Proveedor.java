@@ -13,7 +13,7 @@ public class Proveedor {
 	private Direccion Direccion;
 	private String RFC;
 	public Proveedor(String iD, String nombres, String apellidos, String nombre_Comercial, String giro_Comercial,
-			String telefono, String correo, String sitio_Web, Usuario.Direccion direccion, String rFC) {
+			String telefono, String correo, String sitio_Web, Direccion direccion, String rFC) {
 		super();
 		ID = iD;
 		Nombres = nombres;
@@ -82,6 +82,12 @@ public class Proveedor {
 	}
 	public String getID() {
 		return ID;
+	}
+	@Override
+	public String toString() {
+		return "Proveedor [ID=" + ID + ", Nombres=" + Nombres + ", Apellidos=" + Apellidos + ", Nombre_Comercial="
+				+ Nombre_Comercial + ", Giro_Comercial=" + Giro_Comercial + ", Telefono=" + Telefono + ", Correo="
+				+ Correo + ", Sitio_Web=" + Sitio_Web + ", Direccion=" + Direccion + ", RFC=" + RFC + "]";
 	}
 	
 	

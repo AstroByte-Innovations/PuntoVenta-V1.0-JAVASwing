@@ -11,8 +11,7 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/marco/OneDrive/Escritorio/sqljdbc_12.2.0.0_enu/sqljdbc_12.2/enu/mssql-jdbc-12.2.0.jre8.jar"/>
-	<classpathentry kind="lib" path="C:/Users/marco/OneDrive/Escritorio/sqljdbc_12.2.0.0_enu/sqljdbc_12.2/enu/mssql-jdbc-12.2.0.jre11.jar"/>
-	<classpathentry kind="lib" path="C:/Users/marco/OneDrive/Documentos/GitHub/PuntoVentaJAVA/ProyectoIntegrador/Libraries/jasypt-1.9.3-dist/jasypt-1.9.3/lib/jasypt-1.9.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Marcos/Documents/GitHub/PuntoVentaJAVA/ProyectoIntegrador/Libraries/sqljdbc_12.2/enu/mssql-jdbc-12.2.0.jre8.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Marcos/Documents/GitHub/PuntoVentaJAVA/ProyectoIntegrador/Libraries/sqljdbc_12.2/enu/mssql-jdbc-12.2.0.jre11.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -24,6 +24,7 @@ public class VLogin extends JFrame {
 	public JTextField user;
 	public JPasswordField password;
 	public JButton btnSubmit;
+	public JLabel error;
 
 	/**
 	 * Create the frame.
@@ -134,7 +135,7 @@ public class VLogin extends JFrame {
 		gbc_separator_1.gridy = 7;
 		panel.add(separator_1, gbc_separator_1);
 		
-		JLabel error = new JLabel("");
+		 error = new JLabel("");
 		error.setForeground(new Color(128, 0, 0));
 		GridBagConstraints gbc_error = new GridBagConstraints();
 		gbc_error.gridx = 0;

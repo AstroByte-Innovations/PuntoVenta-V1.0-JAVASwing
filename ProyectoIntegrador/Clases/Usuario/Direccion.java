@@ -75,6 +75,12 @@ public class Direccion {
 	public String getID() {
 		return ID;
 	}
+	@Override
+	public String toString() {
+		return "Direccion [ID=" + ID + ", Calle=" + Calle + ", Numero_Interior=" + Numero_Interior
+				+ ", Numero_Exterior=" + Numero_Exterior + ", Colonia=" + Colonia + ", Codigo_Postal=" + Codigo_Postal
+				+ ", Ciudad=" + Ciudad + ", Estado=" + Estado + ", Pais=" + Pais + "]";
+	}
 	
 	
 }

@@ -1,5 +1,6 @@
 package Productos;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -7,70 +8,112 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import Categorias.MCategorias;
 import General.ConexionBD;
+import Usuario.MProveedor;
+import Usuario.Proveedor;
 
 public class MProductos {
-
-	static public ArrayList CargarProductos() {
-		ArrayList<Producto> productos = new ArrayList<Producto>();
-			ConexionBD conexion = new ConexionBD();
-			System.out.println("User" + conexion.user + " Password" + conexion.password);
-	       Connection connection = null;
-	       Statement statement = null;
-	       ResultSet resultSet = null;
+	
+	public static ArrayList<Producto> mostrarProductos(int page, int size){
+		ArrayList<Producto> listado = new ArrayList<Producto>();
+		Connection conexion = ConexionBD.LocalConexion("LocalPuntoDeVenta", "MarcosFalcon", "halo0921177@");
+		String query = "EXEC mostrarProductosEntre @PageNumber = " + page + " , @PageSize = " + size;
+		
 		try {
-			//Establecer
-			connection = DriverManager.getConnection(conexion.url, conexion.user, conexion.password);
-			// Crear la declaración y realizar la consulta
-	           statement = connection.createStatement();
-	           String query = "SELECT * FROM [dbo].[Producto];";
-	           resultSet = statement.executeQuery(query);
-
-	           // Procesar los resultados
-	           while (resultSet.next()) {
-	               String id = resultSet.getString("ID");
-	               String codigo = resultSet.getString("Codigo");
-	               String nombre = resultSet.getString("Nombre");
-	               Double precio = resultSet.getDouble("Precio");
-	               Double costo = resultSet.getDouble("Costo");
-	               int tipo = resultSet.getInt("Tipo");
-	               int categoria = resultSet.getInt("Categoria");
-	               int subCategoria = resultSet.getInt("SubCategoria");
-	               int proveedor = resultSet.getInt("Proveedor");
-	               int estado = resultSet.getInt("Estado");
-	               String descrip = resultSet.getString("Descripcion");
-	               String notas = resultSet.getString("Notas");
-	               String imagen = resultSet.getString("Imagen");
-	               System.out.println(id + " " + nombre + " " + imagen);
-	               productos.add(new Producto(id, codigo, nombre, precio, costo, tipo, null, null, null, estado, descrip, notas, imagen));
-	           }
-	           return productos;
-	       } catch (SQLException e) {
-	           System.out.println("Error al realizar la consulta: " + e.getMessage());
-	       } finally {
-	           // Cerrar los recursos
-	           if (resultSet != null) {
-	               try {
-	                   resultSet.close();
-	               } catch (SQLException e) {
-	                   System.out.println("Error al cerrar el result set: " + e.getMessage());
-	               }
-	           }
-	           if (statement != null) {
-	               try {
-	                   statement.close();
-	               } catch (SQLException e) {
-	                   System.out.println("Error al cerrar el statement: " + e.getMessage());
-	               }
-	           }
-	           if (connection != null) {
-	               try {
-	                   connection.close();
-	               } catch (SQLException e) {
-	                   System.out.println("Error al cerrar la conexión: " + e.getMessage());
-	               }
-	           }
-	       }
-		return productos;
+			Statement stmt = conexion.createStatement();
+			ResultSet rs = stmt.executeQuery(query);
+			while(rs.next()) {
+				String Id = String.valueOf(rs.getInt("ID"));
+				String codigo = rs.getString("Codigo");
+				String nombre = rs.getString("Nombre");
+				double precio = rs.getDouble("Precio");
+				double costo = rs.getDouble("Costo");
+				int tipo = rs.getInt("Tipo");
+				Categoria cat = MCategorias.obtenerCategoria(rs.getInt("Categoria"));
+				SubCategoria sub = MCategorias.obtenerSubCategoria(rs.getInt("SubCategoria"));
+				Proveedor proveedor = MProveedor.obtenerProveedor(rs.getInt("Proveedor"));
+				int estado = rs.getInt("Estado");
+				String des = rs.getString("Descripcion");
+				String notas = rs.getString("Notas");
+				String img = rs.getString("Imagen");
+				Producto producto = new Producto(Id, codigo, nombre, precio, costo, tipo, cat, sub, proveedor, estado, des, notas, img);
+				listado.add(producto);
+				System.out.println(producto.toString());
+			}
+			return listado;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			System.out.println("Producto " + e.getMessage());
+		}
+		return listado;
+	}
+	
+	public static ArrayList<Producto> mostrarProductosByCategoria(int page, int size,int IdCat){
+		ArrayList<Producto> listado = new ArrayList<Producto>();
+		Connection conexion = ConexionBD.LocalConexion("LocalPuntoDeVenta", "MarcosFalcon", "halo0921177@");
+		String query = "EXEC mostrarProductosEntreyCategoria @PageNumber =" + page + " , @PageSize = " + size + ", @categoria = " + IdCat;
+		
+		try {
+			Statement stmt = conexion.createStatement();
+			ResultSet rs = stmt.executeQuery(query);
+			while(rs.next()) {
+				String Id = String.valueOf(rs.getInt("ID"));
+				String codigo = rs.getString("Codigo");
+				String nombre = rs.getString("Nombre");
+				double precio = rs.getDouble("Precio");
+				double costo = rs.getDouble("Costo");
+				int tipo = rs.getInt("Tipo");
+				Categoria cat = MCategorias.obtenerCategoria(rs.getInt("Categoria"));
+				SubCategoria sub = MCategorias.obtenerSubCategoria(rs.getInt("SubCategoria"));
+				Proveedor proveedor = MProveedor.obtenerProveedor(rs.getInt("Proveedor"));
+				int estado = rs.getInt("Estado");
+				String des = rs.getString("Descripcion");
+				String notas = rs.getString("Notas");
+				String img = rs.getString("Imagen");
+				Producto producto = new Producto(Id, codigo, nombre, precio, costo, tipo, cat, sub, proveedor, estado, des, notas, img);
+				listado.add(producto);
+				System.out.println(producto.toString());
+			}
+			return listado;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			System.out.println("Producto " + e.getMessage());
+		}
+		return listado;
+	}
+	
+	public static ArrayList<Producto> mostrarProductosByCategoriaAndSubcategorias(int page, int size,int IdCat,int IdSub){
+		ArrayList<Producto> listado = new ArrayList<Producto>();
+		Connection conexion = ConexionBD.LocalConexion("LocalPuntoDeVenta", "MarcosFalcon", "halo0921177@");
+		String query = "EXEC mostrarProductosEntreCategoriaSubCategoria @PageNumber =" + page + " , @PageSize = " + size + ", @categoria = " + IdCat + ", @subcategoria = " + IdSub;
+		
+		try {
+			Statement stmt = conexion.createStatement();
+			ResultSet rs = stmt.executeQuery(query);
+			while(rs.next()) {
+				String Id = String.valueOf(rs.getInt("ID"));
+				String codigo = rs.getString("Codigo");
+				String nombre = rs.getString("Nombre");
+				double precio = rs.getDouble("Precio");
+				double costo = rs.getDouble("Costo");
+				int tipo = rs.getInt("Tipo");
+				Categoria cat = MCategorias.obtenerCategoria(rs.getInt("Categoria"));
+				SubCategoria sub = MCategorias.obtenerSubCategoria(rs.getInt("SubCategoria"));
+				Proveedor proveedor = MProveedor.obtenerProveedor(rs.getInt("Proveedor"));
+				int estado = rs.getInt("Estado");
+				String des = rs.getString("Descripcion");
+				String notas = rs.getString("Notas");
+				String img = rs.getString("Imagen");
+				Producto producto = new Producto(Id, codigo, nombre, precio, costo, tipo, cat, sub, proveedor, estado, des, notas, img);
+				listado.add(producto);
+				System.out.println(producto.toString());
+			}
+			return listado;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			System.out.println("Producto " + e.getMessage());
+		}
+		return listado;
 	}
 }

@@ -14,7 +14,7 @@ public class Empleado {
 	private String Fecha;
 	
 	public Empleado(String iD, String nombres, String apellidos, String telefono, String correo, String rFC,
-			String cargo, Usuario.Role role, Usuario.Direccion direccion, String fecha) {
+			String cargo, Role role, Direccion direccion, String fecha) {
 		super();
 		ID = iD;
 		Nombres = nombres;
