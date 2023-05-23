@@ -43,12 +43,13 @@ public class CPrincipal implements ActionListener{
 		this.principal.centro.opciones.opciones[6].addActionListener(this);
 		this.principal.centro.opciones.opciones[7].addActionListener(this);
 		this.principal.centro.opciones.opciones[8].addActionListener(this);
+		/*
 		this.principal.centro.opciones.opciones[9].addActionListener(this);
 		this.principal.centro.opciones.opciones[10].addActionListener(this);
 		this.principal.centro.opciones.opciones[11].addActionListener(this);
 		this.principal.centro.opciones.opciones[12].addActionListener(this);
 		this.principal.centro.opciones.opciones[13].addActionListener(this);
-		this.principal.centro.opciones.opciones[14].addActionListener(this);
+		this.principal.centro.opciones.opciones[14].addActionListener(this);*/
 		this.principal.navegacion.SMsalida.addActionListener(this);
 		//this.principal.centro.
 
@@ -68,26 +69,17 @@ public class CPrincipal implements ActionListener{
 		}else if(e.getSource() == this.principal.centro.opciones.opciones[3]) {
 			CMovAlmacen movimientos_almacen = new CMovAlmacen();
 			this.principal.dispose();
-		}else if(e.getSource() == this.principal.centro.opciones.opciones[6]){
+		}else if(e.getSource() == this.principal.centro.opciones.opciones[5]){
 			CAlmacen almacen = new CAlmacen();
 			this.principal.dispose();
-		}else if(e.getSource() == this.principal.centro.opciones.opciones[7]) {
+		}else if(e.getSource() == this.principal.centro.opciones.opciones[6]) {
 			CCategorias categorias = new CCategorias();
 			this.principal.dispose();
 		}else if(e.getSource() == this.principal.centro.opciones.opciones[0]) {
 			CProductos productos = new CProductos();
 			this.principal.dispose();
-		}else if(e.getSource() == this.principal.centro.opciones.opciones[9]) {
+		}else if(e.getSource() == this.principal.centro.opciones.opciones[8]) {
 			CProveedor proveedor = new CProveedor();
-			this.principal.dispose();
-		}else if(e.getSource() ==  this.principal.centro.opciones.opciones[10]) {
-			CEmpleado empleado = new CEmpleado();
-			this.principal.dispose();
-		}else if(e.getSource() == this.principal.centro.opciones.opciones[11]) {
-			CClientes clientes = new CClientes();
-			this.principal.dispose();
-		}else if(e.getSource() == this.principal.centro.opciones.opciones[12]) {
-			CRoles roles = new CRoles();
 			this.principal.dispose();
 		}else if(e.getSource() == this.principal.centro.opciones.opciones[4]) {
 			CVentas ventas = new CVentas();

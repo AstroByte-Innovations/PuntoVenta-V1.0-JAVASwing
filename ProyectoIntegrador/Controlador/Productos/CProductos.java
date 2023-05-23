@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import javax.swing.JPanel;
 import javax.swing.JScrollBar;
 import javax.swing.border.EmptyBorder;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 import Categorias.MCategorias;
 import General.genericos;

@@ -11,7 +11,6 @@ public class Table extends JScrollPane {
 	public Table(DefaultTableModel modelo) {
 		setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		table = new JTable();
-		
 		this.table.setDefaultRenderer(Object.class, new RenderTable());
 		this.table.setModel(modelo);
 		

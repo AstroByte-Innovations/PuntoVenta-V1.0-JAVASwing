@@ -17,6 +17,8 @@ import javax.swing.ScrollPaneConstants;
 import java.awt.GridLayout;
 import java.awt.Font;
 import Usuario.*;
+import javax.swing.JSpinner;
+import java.awt.Color;
 
 public class PV extends JPanel {
 	private JTextField Ticket;
@@ -24,31 +26,32 @@ public class PV extends JPanel {
 	private JTextField cajero;
 	public JTextField Nombre;
 	public JTextField Precio;
-	public JTextField Cantidad;
-	private JTextField Cliente;
 	public JTextField Total;
 	public JTextField Efectivo;
 	public JTextField Cambio;
 	public JTextField Subtotal;
-	public JTextField DescuentosT;
 	public JTextField CantidadT;
 	public JTextField IVA;
 	public Table tablaProductos;
 	public JButton btnCancelar;
 	public JButton btnAgregar;
 	public JButton btnPagar;
-
+	public JSpinner spinner;
+	public JButton btnModo;
+	public JLabel Imagen;
 	/**
 	 * Create the panel.
 	 */
-	public PV(String Num, Empleado empleado, Cliente cliente, String fecha, String root) {
+	public PV(String Num, String fecha, String root) {
 		this.setBounds(0, 0, 900, 800);
 		String NC, NE;
+		/*
 		if(empleado != null) NE = empleado.getNombres();
 		else NE = "UNKNOW";
 		
+		
 		if(cliente != null) NC = cliente.getNombres();
-		else NC = "Cliente Eventual";
+		else NC = "Cliente Eventual";*/
 		
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]{0, 0, 47, 0, 100, 0, 0, 0, 0, 0, 80, 0, 109, 0, 0};
@@ -86,7 +89,7 @@ public class PV extends JPanel {
 		gbc_lblCajero.gridy = 0;
 		add(lblCajero, gbc_lblCajero);
 		
-		cajero = new JTextField(NE);
+		cajero = new JTextField("Marcos Falcon");
 		cajero.setEnabled(false);
 		cajero.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		GridBagConstraints gbc_cajero = new GridBagConstraints();
@@ -98,26 +101,13 @@ public class PV extends JPanel {
 		add(cajero, gbc_cajero);
 		cajero.setColumns(10);
 		
-		JLabel lblCliente = new JLabel("Cliente:");
-		lblCliente.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblCliente.setHorizontalAlignment(SwingConstants.LEFT);
-		GridBagConstraints gbc_lblCliente = new GridBagConstraints();
-		gbc_lblCliente.insets = new Insets(0, 0, 5, 5);
-		gbc_lblCliente.gridx = 7;
-		gbc_lblCliente.gridy = 0;
-		add(lblCliente, gbc_lblCliente);
-		
-		Cliente = new JTextField(NC);
-		Cliente.setEnabled(false);
-		Cliente.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		GridBagConstraints gbc_Cliente = new GridBagConstraints();
-		gbc_Cliente.insets = new Insets(0, 0, 5, 5);
-		gbc_Cliente.fill = GridBagConstraints.HORIZONTAL;
-		gbc_Cliente.gridx = 8;
-		gbc_Cliente.gridy = 0;
-		gbc_Cliente.gridwidth = 3;
-		add(Cliente, gbc_Cliente);
-		Cliente.setColumns(10);
+		btnModo = new JButton("Manual");
+		btnModo.setBackground(new Color(128, 255, 128));
+		GridBagConstraints gbc_btnModo = new GridBagConstraints();
+		gbc_btnModo.insets = new Insets(0, 0, 5, 5);
+		gbc_btnModo.gridx = 10;
+		gbc_btnModo.gridy = 0;
+		add(btnModo, gbc_btnModo);
 		
 		JLabel Fecha = new JLabel(fecha);
 		Fecha.setFont(new Font("Tahoma", Font.PLAIN, 16));
@@ -128,7 +118,7 @@ public class PV extends JPanel {
 		gbc_Fecha.gridy = 0;
 		add(Fecha, gbc_Fecha);
 		
-		JLabel Imagen = new JLabel("");
+		Imagen = new JLabel("");
 		Imagen.setIcon(new ImageIcon(root));
 		GridBagConstraints gbc_Imagen = new GridBagConstraints();
 		gbc_Imagen.insets = new Insets(0, 0, 5, 0);
@@ -206,17 +196,14 @@ public class PV extends JPanel {
 		add(Precio, gbc_Precio);
 		Precio.setColumns(10);
 		
-		Cantidad = new JTextField();
-		Cantidad.setEnabled(false);
-		Cantidad.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		GridBagConstraints gbc_Cantidad = new GridBagConstraints();
-		gbc_Cantidad.fill = GridBagConstraints.HORIZONTAL;
-		gbc_Cantidad.anchor = GridBagConstraints.NORTH;
-		gbc_Cantidad.insets = new Insets(0, 0, 5, 5);
-		gbc_Cantidad.gridx = 10;
-		gbc_Cantidad.gridy = 2;
-		add(Cantidad, gbc_Cantidad);
-		Cantidad.setColumns(10);
+		spinner = new JSpinner();
+		GridBagConstraints gbc_spinner = new GridBagConstraints();
+		gbc_spinner.fill = GridBagConstraints.HORIZONTAL;
+		gbc_spinner.anchor = GridBagConstraints.NORTH;
+		gbc_spinner.insets = new Insets(0, 0, 5, 5);
+		gbc_spinner.gridx = 10;
+		gbc_spinner.gridy = 2;
+		add(spinner, gbc_spinner);
 		
 		btnAgregar = new JButton("Agregar");
 		btnAgregar.setFont(new Font("Tahoma", Font.PLAIN, 16));
@@ -313,7 +300,7 @@ public class PV extends JPanel {
 		GridBagConstraints gbc_lblIVA = new GridBagConstraints();
 		gbc_lblIVA.gridwidth = 2;
 		gbc_lblIVA.insets = new Insets(0, 0, 5, 5);
-		gbc_lblIVA.gridx = 6;
+		gbc_lblIVA.gridx = 8;
 		gbc_lblIVA.gridy = 11;
 		add(lblIVA, gbc_lblIVA);
 		
@@ -321,17 +308,9 @@ public class PV extends JPanel {
 		lblCantidadT.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		GridBagConstraints gbc_lblCantidadT = new GridBagConstraints();
 		gbc_lblCantidadT.insets = new Insets(0, 0, 5, 5);
-		gbc_lblCantidadT.gridx = 8;
+		gbc_lblCantidadT.gridx = 10;
 		gbc_lblCantidadT.gridy = 11;
 		add(lblCantidadT, gbc_lblCantidadT);
-		
-		JLabel lblDescuentos = new JLabel("Descuentos");
-		lblDescuentos.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		GridBagConstraints gbc_lblDescuentos = new GridBagConstraints();
-		gbc_lblDescuentos.insets = new Insets(0, 0, 5, 5);
-		gbc_lblDescuentos.gridx = 10;
-		gbc_lblDescuentos.gridy = 11;
-		add(lblDescuentos, gbc_lblDescuentos);
 		
 		JLabel lblSubtotal = new JLabel("Subtotal");
 		lblSubtotal.setFont(new Font("Tahoma", Font.PLAIN, 16));
@@ -358,7 +337,7 @@ public class PV extends JPanel {
 		gbc_IVA.gridwidth = 2;
 		gbc_IVA.insets = new Insets(0, 0, 0, 5);
 		gbc_IVA.fill = GridBagConstraints.BOTH;
-		gbc_IVA.gridx = 6;
+		gbc_IVA.gridx = 8;
 		gbc_IVA.gridy = 12;
 		add(IVA, gbc_IVA);
 		IVA.setColumns(10);
@@ -371,23 +350,10 @@ public class PV extends JPanel {
 		GridBagConstraints gbc_CantidadT = new GridBagConstraints();
 		gbc_CantidadT.insets = new Insets(0, 0, 0, 5);
 		gbc_CantidadT.fill = GridBagConstraints.BOTH;
-		gbc_CantidadT.gridx = 8;
+		gbc_CantidadT.gridx = 10;
 		gbc_CantidadT.gridy = 12;
 		add(CantidadT, gbc_CantidadT);
 		CantidadT.setColumns(10);
-		
-		DescuentosT = new JTextField();
-		DescuentosT.setEnabled(false);
-		DescuentosT.setHorizontalAlignment(SwingConstants.RIGHT);
-		DescuentosT.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		DescuentosT.setText("$ 0.00");
-		GridBagConstraints gbc_DescuentosT = new GridBagConstraints();
-		gbc_DescuentosT.insets = new Insets(0, 0, 0, 5);
-		gbc_DescuentosT.fill = GridBagConstraints.BOTH;
-		gbc_DescuentosT.gridx = 10;
-		gbc_DescuentosT.gridy = 12;
-		add(DescuentosT, gbc_DescuentosT);
-		DescuentosT.setColumns(10);
 		
 		Subtotal = new JTextField();
 		Subtotal.setHorizontalAlignment(SwingConstants.RIGHT);

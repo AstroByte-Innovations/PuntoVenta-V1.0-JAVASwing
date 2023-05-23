@@ -17,14 +17,14 @@ public class PuntoDeVenta extends JFrame {
 	public Nav navegacion;
 	public PV centro;
 	
-	public PuntoDeVenta(String Num, Empleado empleado, Cliente cliente, String fecha, String root) {
+	public PuntoDeVenta(String Num,String fecha, String root) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		setBounds(100, 100, 900, 600);
 		
 		contentPane = new JPanel(new BorderLayout());
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		this.centro = new PV(Num, empleado, cliente, fecha, root);
+		this.centro = new PV(Num, fecha, root);
 		this.navegacion = new Nav();
 		this.contentPane.add(navegacion,BorderLayout.NORTH);
 		this.contentPane.add(centro,BorderLayout.CENTER);

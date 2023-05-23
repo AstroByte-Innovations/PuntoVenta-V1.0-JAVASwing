@@ -13,16 +13,16 @@ public class Opciones extends JPanel {
 			new Opcion("Inventario","src/Assets/img/imagenop.png",20),
 			new Opcion("Movimientos en Almacen","src/Assets/img/imagenop.png",20),
 			new Opcion("Ventas","src/Assets/img/imagenop.png",20),
-			new Opcion("Tienda","src/Assets/img/imagenop.png",20),
+			//new Opcion("Tienda","src/Assets/img/imagenop.png",20),
 			new Opcion("Almacenes","src/Assets/img/imagenop.png",20),
 			new Opcion("Categorias","src/Assets/img/imagenop.png",20),
 			new Opcion("Reportes","src/Assets/img/imagenop.png",20),
 			new Opcion("Proveedores","src/Assets/img/imagenop.png",20),
-			new Opcion("Empleados","src/Assets/img/imagenop.png",20),
-			new Opcion("Clientes","src/Assets/img/imagenop.png",20),
-			new Opcion("Roles","src/Assets/img/imagenop.png",20),
-			new Opcion("Auditoria","src/Assets/img/imagenop.png",20),
-			new Opcion("Configuracion","src/Assets/img/imagenop.png",20),
+			//new Opcion("Empleados","src/Assets/img/imagenop.png",20),
+			//new Opcion("Clientes","src/Assets/img/imagenop.png",20),
+			//new Opcion("Roles","src/Assets/img/imagenop.png",20),
+			//new Opcion("Auditoria","src/Assets/img/imagenop.png",20),
+			//new Opcion("Configuracion","src/Assets/img/imagenop.png",20),
 	};
 	
 	public Opciones() {

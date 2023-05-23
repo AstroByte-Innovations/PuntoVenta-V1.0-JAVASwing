@@ -1,42 +1,58 @@
 package Ventas;
 
-import Tienda.Tienda;
-import Inventario.Almacen;
-import Usuario.Empleado;
-import Usuario.Cliente;
-
+import Productos.ProductoTicket;
 public class Ticket {
 
 	private String ID;
 	private String Fecha;
-	private Tienda Tienda;
-	private Almacen Almacen;
-	private Empleado Cajero;
-	private Cliente Cliente;
 	private double Subtotal;
-	private double Descuentos;
 	private double IVA;
 	private double Total;
 	private double Efectivo;
 	private double Cambio;
+	private int cantidad;
+	private ProductoTicket producto;
 	
-	public Ticket(String iD, String fecha, Tienda tienda, Inventario.Almacen almacen, Empleado cajero,
-			Usuario.Cliente cliente, double subtotal, double descuentos, double iVA, double total, double efectivo,
-			double cambio) {
+	
+	public Ticket(String iD, String fecha, double subtotal, double iVA, double total, double efectivo,
+			double cambio,int cantidad,ProductoTicket producto) {
 		super();
 		ID = iD;
 		Fecha = fecha;
-		Tienda = tienda;
-		Almacen = almacen;
-		Cajero = cajero;
-		Cliente = cliente;
 		Subtotal = subtotal;
-		Descuentos = descuentos;
 		IVA = iVA;
 		Total = total;
 		Efectivo = efectivo;
 		Cambio = cambio;
+		this.cantidad = cantidad;
+		this.producto = producto;
 	}
+	
+	
+	
+	
+	public ProductoTicket getProducto() {
+		return producto;
+	}
+
+	public void setProducto(ProductoTicket producto) {
+		this.producto = producto;
+	}
+
+
+
+
+	public int getCantidad() {
+		return cantidad;
+	}
+
+
+
+	public void setCantidad(int cantidad) {
+		this.cantidad = cantidad;
+	}
+
+
 
 	public String getFecha() {
 		return Fecha;
@@ -46,52 +62,12 @@ public class Ticket {
 		Fecha = fecha;
 	}
 
-	public Tienda getTienda() {
-		return Tienda;
-	}
-
-	public void setTienda(Tienda tienda) {
-		Tienda = tienda;
-	}
-
-	public Almacen getAlmacen() {
-		return Almacen;
-	}
-
-	public void setAlmacen(Almacen almacen) {
-		Almacen = almacen;
-	}
-
-	public Empleado getCajero() {
-		return Cajero;
-	}
-
-	public void setCajero(Empleado cajero) {
-		Cajero = cajero;
-	}
-
-	public Cliente getCliente() {
-		return Cliente;
-	}
-
-	public void setCliente(Cliente cliente) {
-		Cliente = cliente;
-	}
-
 	public double getSubtotal() {
 		return Subtotal;
 	}
 
 	public void setSubtotal(double subtotal) {
 		Subtotal = subtotal;
-	}
-
-	public double getDescuentos() {
-		return Descuentos;
-	}
-
-	public void setDescuentos(double descuentos) {
-		Descuentos = descuentos;
 	}
 
 	public double getIVA() {

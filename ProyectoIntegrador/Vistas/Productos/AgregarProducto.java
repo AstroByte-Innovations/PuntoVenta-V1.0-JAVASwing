@@ -26,8 +26,9 @@ import javax.swing.ScrollPaneConstants;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JComboBox;
+import javax.swing.JSpinner;
 
-public class VerProducto extends JDialog {
+public class AgregarProducto extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
 	public JTextField Estado;
@@ -35,7 +36,6 @@ public class VerProducto extends JDialog {
 	public JTextField Costo;
 	public JTextField Categoria;
 	public JTextField SubCategoria;
-	public JTextField ID;
 	public JTextField WEB;
 	public JTextField Telefono;
 	public JTextField Correo;
@@ -43,14 +43,14 @@ public class VerProducto extends JDialog {
 	public JTextField ApellidoProveedor;
 	public JTextField NombreComercial;
 	public JTextField GiroComercial;
-	public JButton	BtnActualizar,BtnEliminar,BtnCancelar,btnActualizarImagen;
+	public JButton	BtnAgregar,BtnEliminar,BtnCancelar,btnActualizarImagen;
 	public JTextField Codigo;
 	public JTextArea NombreProducto;
 	public JTextArea Descripcion;
 	public JTextArea Notas;
 	public JComboBox tipo;
-
-	public VerProducto(Producto producto) {
+	public JSpinner Cantidad;
+	public AgregarProducto() {
 		setBounds(100, 100, 850, 600);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -65,30 +65,10 @@ public class VerProducto extends JDialog {
 				splitPane.setLeftComponent(datos);
 				GridBagLayout gbl_datos = new GridBagLayout();
 				gbl_datos.columnWidths = new int[]{0, 0, 0, 0, 0};
-				gbl_datos.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+				gbl_datos.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 				gbl_datos.columnWeights = new double[]{1.0, 1.0, 1.0, 1.0, Double.MIN_VALUE};
-				gbl_datos.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 0.0, Double.MIN_VALUE};
+				gbl_datos.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 0.0, Double.MIN_VALUE};
 				datos.setLayout(gbl_datos);
-				{
-					JLabel lblNewLabel = new JLabel("ID: ");
-					GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
-					gbc_lblNewLabel.anchor = GridBagConstraints.EAST;
-					gbc_lblNewLabel.insets = new Insets(0, 0, 5, 5);
-					gbc_lblNewLabel.gridx = 0;
-					gbc_lblNewLabel.gridy = 0;
-					datos.add(lblNewLabel, gbc_lblNewLabel);
-				}
-				{
-					ID = new JTextField("UNKNOW");
-					ID.setEditable(false);
-					GridBagConstraints gbc_ID = new GridBagConstraints();
-					gbc_ID.insets = new Insets(0, 0, 5, 5);
-					gbc_ID.fill = GridBagConstraints.HORIZONTAL;
-					gbc_ID.gridx = 1;
-					gbc_ID.gridy = 0;
-					datos.add(ID, gbc_ID);
-					ID.setColumns(10);
-				}
 				{
 					JLabel lblNewLabel_1 = new JLabel("Nombre: ");
 					GridBagConstraints gbc_lblNewLabel_1 = new GridBagConstraints();
@@ -239,171 +219,21 @@ public class VerProducto extends JDialog {
 					SubCategoria.setColumns(10);
 				}
 				{
-					JSeparator separator = new JSeparator();
-					GridBagConstraints gbc_separator = new GridBagConstraints();
-					gbc_separator.gridwidth = 4;
-					gbc_separator.fill = GridBagConstraints.HORIZONTAL;
-					gbc_separator.insets = new Insets(0, 0, 5, 0);
-					gbc_separator.gridx = 0;
-					gbc_separator.gridy = 6;
-					datos.add(separator, gbc_separator);
+					JLabel lblNewLabel = new JLabel("Cantidad");
+					GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
+					gbc_lblNewLabel.insets = new Insets(0, 0, 5, 5);
+					gbc_lblNewLabel.gridx = 0;
+					gbc_lblNewLabel.gridy = 6;
+					datos.add(lblNewLabel, gbc_lblNewLabel);
 				}
 				{
-					JLabel lblNewLabel_8 = new JLabel("Proveedor");
-					lblNewLabel_8.setFont(new Font("Tahoma", Font.PLAIN, 16));
-					GridBagConstraints gbc_lblNewLabel_8 = new GridBagConstraints();
-					gbc_lblNewLabel_8.anchor = GridBagConstraints.WEST;
-					gbc_lblNewLabel_8.gridwidth = 2;
-					gbc_lblNewLabel_8.insets = new Insets(0, 0, 5, 5);
-					gbc_lblNewLabel_8.gridx = 0;
-					gbc_lblNewLabel_8.gridy = 7;
-					datos.add(lblNewLabel_8, gbc_lblNewLabel_8);
-				}
-				{
-					JLabel lblNewLabel_9 = new JLabel("Nombre");
-					GridBagConstraints gbc_lblNewLabel_9 = new GridBagConstraints();
-					gbc_lblNewLabel_9.anchor = GridBagConstraints.EAST;
-					gbc_lblNewLabel_9.insets = new Insets(0, 0, 5, 5);
-					gbc_lblNewLabel_9.gridx = 0;
-					gbc_lblNewLabel_9.gridy = 8;
-					datos.add(lblNewLabel_9, gbc_lblNewLabel_9);
-				}
-				{
-					NombreProveedor = new JTextField("UNKNOW");
-					NombreProveedor.setEditable(false);
-					GridBagConstraints gbc_NombreProveedor = new GridBagConstraints();
-					gbc_NombreProveedor.insets = new Insets(0, 0, 5, 5);
-					gbc_NombreProveedor.fill = GridBagConstraints.HORIZONTAL;
-					gbc_NombreProveedor.gridx = 1;
-					gbc_NombreProveedor.gridy = 8;
-					datos.add(NombreProveedor, gbc_NombreProveedor);
-					NombreProveedor.setColumns(10);
-				}
-				{
-					JLabel lblNewLabel_13 = new JLabel("Telefono: ");
-					GridBagConstraints gbc_lblNewLabel_13 = new GridBagConstraints();
-					gbc_lblNewLabel_13.insets = new Insets(0, 0, 5, 5);
-					gbc_lblNewLabel_13.gridx = 2;
-					gbc_lblNewLabel_13.gridy = 8;
-					datos.add(lblNewLabel_13, gbc_lblNewLabel_13);
-				}
-				{
-					Telefono = new JTextField("UNKNOW");
-					Telefono.setEditable(false);
-					GridBagConstraints gbc_Telefono = new GridBagConstraints();
-					gbc_Telefono.insets = new Insets(0, 0, 5, 0);
-					gbc_Telefono.fill = GridBagConstraints.HORIZONTAL;
-					gbc_Telefono.gridx = 3;
-					gbc_Telefono.gridy = 8;
-					datos.add(Telefono, gbc_Telefono);
-					Telefono.setColumns(10);
-				}
-				{
-					JLabel lblNewLabel_10 = new JLabel("Apellido: ");
-					GridBagConstraints gbc_lblNewLabel_10 = new GridBagConstraints();
-					gbc_lblNewLabel_10.anchor = GridBagConstraints.EAST;
-					gbc_lblNewLabel_10.insets = new Insets(0, 0, 5, 5);
-					gbc_lblNewLabel_10.gridx = 0;
-					gbc_lblNewLabel_10.gridy = 9;
-					datos.add(lblNewLabel_10, gbc_lblNewLabel_10);
-				}
-				{
-					ApellidoProveedor = new JTextField("UNKNOW");
-					ApellidoProveedor.setEditable(false);
-					GridBagConstraints gbc_ApellidoProveedor = new GridBagConstraints();
-					gbc_ApellidoProveedor.anchor = GridBagConstraints.ABOVE_BASELINE;
-					gbc_ApellidoProveedor.insets = new Insets(0, 0, 5, 5);
-					gbc_ApellidoProveedor.fill = GridBagConstraints.HORIZONTAL;
-					gbc_ApellidoProveedor.gridx = 1;
-					gbc_ApellidoProveedor.gridy = 9;
-					datos.add(ApellidoProveedor, gbc_ApellidoProveedor);
-					ApellidoProveedor.setColumns(10);
-				}
-				{
-					JLabel lblNewLabel_14 = new JLabel("Correo: ");
-					GridBagConstraints gbc_lblNewLabel_14 = new GridBagConstraints();
-					gbc_lblNewLabel_14.insets = new Insets(0, 0, 5, 5);
-					gbc_lblNewLabel_14.gridx = 2;
-					gbc_lblNewLabel_14.gridy = 9;
-					datos.add(lblNewLabel_14, gbc_lblNewLabel_14);
-				}
-				{
-					Correo = new JTextField("UNKNOW");
-					Correo.setEditable(false);
-					GridBagConstraints gbc_Correo = new GridBagConstraints();
-					gbc_Correo.insets = new Insets(0, 0, 5, 0);
-					gbc_Correo.fill = GridBagConstraints.HORIZONTAL;
-					gbc_Correo.gridx = 3;
-					gbc_Correo.gridy = 9;
-					datos.add(Correo, gbc_Correo);
-					Correo.setColumns(10);
-				}
-				{
-					JLabel lblNewLabel_11 = new JLabel("Nombre Comercial");
-					GridBagConstraints gbc_lblNewLabel_11 = new GridBagConstraints();
-					gbc_lblNewLabel_11.anchor = GridBagConstraints.EAST;
-					gbc_lblNewLabel_11.insets = new Insets(0, 0, 5, 5);
-					gbc_lblNewLabel_11.gridx = 0;
-					gbc_lblNewLabel_11.gridy = 10;
-					datos.add(lblNewLabel_11, gbc_lblNewLabel_11);
-				}
-				{
-					NombreComercial = new JTextField("UNKNOW");
-					NombreComercial.setEditable(false);
-					GridBagConstraints gbc_NombreComercial = new GridBagConstraints();
-					gbc_NombreComercial.insets = new Insets(0, 0, 5, 5);
-					gbc_NombreComercial.fill = GridBagConstraints.HORIZONTAL;
-					gbc_NombreComercial.gridx = 1;
-					gbc_NombreComercial.gridy = 10;
-					datos.add(NombreComercial, gbc_NombreComercial);
-					NombreComercial.setColumns(10);
-				}
-				{
-					JLabel lblNewLabel_15 = new JLabel("Sitio WEB");
-					GridBagConstraints gbc_lblNewLabel_15 = new GridBagConstraints();
-					gbc_lblNewLabel_15.insets = new Insets(0, 0, 5, 5);
-					gbc_lblNewLabel_15.gridx = 2;
-					gbc_lblNewLabel_15.gridy = 10;
-					datos.add(lblNewLabel_15, gbc_lblNewLabel_15);
-				}
-				{
-					WEB = new JTextField("UNKNOW");
-					WEB.setEditable(false);
-					GridBagConstraints gbc_WEB = new GridBagConstraints();
-					gbc_WEB.insets = new Insets(0, 0, 5, 0);
-					gbc_WEB.fill = GridBagConstraints.HORIZONTAL;
-					gbc_WEB.gridx = 3;
-					gbc_WEB.gridy = 10;
-					datos.add(WEB, gbc_WEB);
-					WEB.setColumns(10);
-				}
-				{
-					JLabel lblNewLabel_12 = new JLabel("Giro Comercial");
-					GridBagConstraints gbc_lblNewLabel_12 = new GridBagConstraints();
-					gbc_lblNewLabel_12.anchor = GridBagConstraints.EAST;
-					gbc_lblNewLabel_12.insets = new Insets(0, 0, 5, 5);
-					gbc_lblNewLabel_12.gridx = 0;
-					gbc_lblNewLabel_12.gridy = 11;
-					datos.add(lblNewLabel_12, gbc_lblNewLabel_12);
-				}
-				{
-					GiroComercial = new JTextField("UNKNOW");
-					GiroComercial.setEditable(false);
-					GridBagConstraints gbc_GiroComercial = new GridBagConstraints();
-					gbc_GiroComercial.insets = new Insets(0, 0, 5, 5);
-					gbc_GiroComercial.fill = GridBagConstraints.HORIZONTAL;
-					gbc_GiroComercial.gridx = 1;
-					gbc_GiroComercial.gridy = 11;
-					datos.add(GiroComercial, gbc_GiroComercial);
-					GiroComercial.setColumns(10);
-				}
-				{
-					JButton btnProveedor = new JButton("Ver Proveedor");
-					GridBagConstraints gbc_btnProveedor = new GridBagConstraints();
-					gbc_btnProveedor.insets = new Insets(0, 0, 5, 0);
-					gbc_btnProveedor.gridx = 3;
-					gbc_btnProveedor.gridy = 11;
-					datos.add(btnProveedor, gbc_btnProveedor);
+					Cantidad = new JSpinner();
+					GridBagConstraints gbc_Cantidad = new GridBagConstraints();
+					gbc_Cantidad.fill = GridBagConstraints.HORIZONTAL;
+					gbc_Cantidad.insets = new Insets(0, 0, 5, 5);
+					gbc_Cantidad.gridx = 1;
+					gbc_Cantidad.gridy = 6;
+					datos.add(Cantidad, gbc_Cantidad);
 				}
 				{
 					JSeparator separator = new JSeparator();
@@ -412,7 +242,7 @@ public class VerProducto extends JDialog {
 					gbc_separator.gridwidth = 4;
 					gbc_separator.fill = GridBagConstraints.HORIZONTAL;
 					gbc_separator.gridx = 0;
-					gbc_separator.gridy = 13;
+					gbc_separator.gridy = 7;
 					datos.add(separator, gbc_separator);
 				}
 				{
@@ -420,7 +250,7 @@ public class VerProducto extends JDialog {
 					GridBagConstraints gbc_lblNewLabel_16 = new GridBagConstraints();
 					gbc_lblNewLabel_16.insets = new Insets(0, 0, 5, 5);
 					gbc_lblNewLabel_16.gridx = 0;
-					gbc_lblNewLabel_16.gridy = 14;
+					gbc_lblNewLabel_16.gridy = 8;
 					datos.add(lblNewLabel_16, gbc_lblNewLabel_16);
 				}
 				{
@@ -431,7 +261,7 @@ public class VerProducto extends JDialog {
 					gbc_scrollPane.insets = new Insets(0, 0, 5, 0);
 					gbc_scrollPane.fill = GridBagConstraints.BOTH;
 					gbc_scrollPane.gridx = 1;
-					gbc_scrollPane.gridy = 14;
+					gbc_scrollPane.gridy = 8;
 					datos.add(scrollPane, gbc_scrollPane);
 					{
 						Descripcion = new JTextArea();
@@ -444,7 +274,7 @@ public class VerProducto extends JDialog {
 					GridBagConstraints gbc_lblNotas = new GridBagConstraints();
 					gbc_lblNotas.insets = new Insets(0, 0, 5, 5);
 					gbc_lblNotas.gridx = 0;
-					gbc_lblNotas.gridy = 15;
+					gbc_lblNotas.gridy = 9;
 					datos.add(lblNotas, gbc_lblNotas);
 				}
 				{
@@ -455,7 +285,7 @@ public class VerProducto extends JDialog {
 					gbc_scrollPane.insets = new Insets(0, 0, 5, 0);
 					gbc_scrollPane.fill = GridBagConstraints.BOTH;
 					gbc_scrollPane.gridx = 1;
-					gbc_scrollPane.gridy = 15;
+					gbc_scrollPane.gridy = 9;
 					datos.add(scrollPane, gbc_scrollPane);
 					{
 						Notas = new JTextArea();
@@ -483,10 +313,7 @@ public class VerProducto extends JDialog {
 				}
 				{
 					String root = "src/Assets/img/imagenop.png";
-					File imagen = new File("src/Assets/imgProductos/" + producto.getImagen());
-					if(imagen.exists()){
-						root = "src/Assets/imgProductos/" + producto.getImagen();
-					}
+					
 					JLabel Imagen = new JLabel();
 					ImageIcon image = new ImageIcon(root);
 					Image image2 = image.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
@@ -547,20 +374,10 @@ public class VerProducto extends JDialog {
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			{
-				BtnActualizar = new JButton("Actualizar");
-				BtnActualizar .setActionCommand("OK");
-				buttonPane.add(BtnActualizar );
-				getRootPane().setDefaultButton(BtnActualizar );
-			}
-			{
-				BtnEliminar = new JButton("Eliminar");
-				BtnEliminar.setActionCommand("Eliminar");
-				buttonPane.add(BtnEliminar);
-			}
-			{
-				BtnCancelar = new JButton("Cancelar");
-				BtnCancelar.setActionCommand("Cancelar");
-				buttonPane.add(BtnCancelar);
+				BtnAgregar = new JButton("Agregar");
+				BtnAgregar .setActionCommand("OK");
+				buttonPane.add(BtnAgregar );
+				getRootPane().setDefaultButton(BtnAgregar );
 			}
 		}
 	}

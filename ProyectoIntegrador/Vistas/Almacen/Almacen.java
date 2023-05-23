@@ -20,8 +20,8 @@ import java.awt.FlowLayout;
 public class Almacen extends JPanel {
 
 	public CRUD crud; 
-	private JTextField Nombre;
-	private JTextField buscar;
+	public JTextField Nombre;
+	public JTextField buscar;
 	public Table tabla;
 	public JButton btnAgregar, btnEliminar, btnActualizar, btnBuscar, btnFiltro,btnSalida;
 	
@@ -78,7 +78,6 @@ public class Almacen extends JPanel {
 		
 		Nombre = new JTextField();
 		Nombre.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		Nombre.setEditable(false);
 		GridBagConstraints gbc_Nombre = new GridBagConstraints();
 		gbc_Nombre.insets = new Insets(0, 0, 5, 5);
 		gbc_Nombre.fill = GridBagConstraints.HORIZONTAL;
@@ -96,6 +95,7 @@ public class Almacen extends JPanel {
 		editar.add(btnAgregar, gbc_btnAgregar);
 		
 		btnEliminar = new JButton("Eliminar");
+		btnEliminar.setEnabled(false);
 		btnEliminar.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		GridBagConstraints gbc_btnEliminar = new GridBagConstraints();
 		gbc_btnEliminar.insets = new Insets(0, 0, 5, 5);
@@ -104,6 +104,7 @@ public class Almacen extends JPanel {
 		editar.add(btnEliminar, gbc_btnEliminar);
 		
 		btnActualizar = new JButton("Actualizar");
+		btnActualizar.setEnabled(false);
 		btnActualizar.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		GridBagConstraints gbc_btnActualizar = new GridBagConstraints();
 		gbc_btnActualizar.insets = new Insets(0, 0, 5, 0);

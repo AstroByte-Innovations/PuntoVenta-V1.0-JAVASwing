@@ -19,6 +19,7 @@ public class CRUD extends JPanel {
 	public Table tablaInventario;
 	public JPanel Centro, Encabezado, Pie;
 	public JButton btnSalida;
+	public JButton btnAgregar;
 
 	public CRUD(String titulo,String etiqueta) {
 		setBounds(100, 100, 900, 600);
@@ -77,7 +78,7 @@ public class CRUD extends JPanel {
 		gbc_btnFiltro.gridy = 2;
 		Encabezado.add(btnFiltro, gbc_btnFiltro);
 		
-		JButton btnAgregar = new JButton("Agregar");
+		btnAgregar = new JButton("Agregar");
 		btnAgregar.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		GridBagConstraints gbc_btnAgregar = new GridBagConstraints();
 		gbc_btnAgregar.gridx = 7;

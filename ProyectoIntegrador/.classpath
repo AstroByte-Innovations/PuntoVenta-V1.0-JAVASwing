@@ -13,5 +13,7 @@
 	</classpathentry>
 	<classpathentry kind="lib" path="C:/Users/Marcos/Documents/GitHub/PuntoVentaJAVA/ProyectoIntegrador/Libraries/sqljdbc_12.2/enu/mssql-jdbc-12.2.0.jre8.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Marcos/Documents/GitHub/PuntoVentaJAVA/ProyectoIntegrador/Libraries/sqljdbc_12.2/enu/mssql-jdbc-12.2.0.jre11.jar"/>
+	<classpathentry kind="con" path="net.sf.jasperreports.JR_CONTAINER"/>
+	<classpathentry kind="con" path="net.sf.jasperreports.JR_DEPENDENCIES_CONTAINER"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -84,9 +84,36 @@ public class LoginManager {
         return Base64.getEncoder().encodeToString(hashedBytes);
     }
 
-    private String decryptCredential(String credential) {
+    private static String decryptCredential(String credential) {
         // Desencriptar el nombre de usuario usando Base64
         byte[] decodedBytes = Base64.getDecoder().decode(credential);
         return new String(decodedBytes, StandardCharsets.UTF_8);
+    }
+    
+    public static String getDBPassword() {
+    	 Properties prop = new Properties();
+         try (InputStream input = new FileInputStream("config.properties")) {
+             prop.load(input);
+         } catch (IOException e) {
+             e.printStackTrace();
+             return null;
+         }
+
+         // Obtener el usuario y la contraseña del archivo de propiedades
+         String username = prop.getProperty("db.username");
+         String encryptedPassword = prop.getProperty("db.password");
+
+         // Desencriptar la contraseña
+         String password;
+         try {
+             password = decryptCredential(encryptedPassword);
+         } catch (IllegalArgumentException e) {
+             e.printStackTrace();
+             return null;
+         }
+         // Utilizar el usuario y la contraseña en tu conexión a la base de datos
+         System.out.println("Username: " + username);
+         System.out.println("Password: " + password);
+         return password;
     }
 }
